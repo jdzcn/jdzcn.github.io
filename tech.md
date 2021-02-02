@@ -6,7 +6,7 @@ permalink: /tech/
 
 <ul>
   {% for post in site.posts %}
-	{% if post.tags == 'tech' %}
+	{% if page.tags == 'tech' %}
 		<li>
 		      <a href="{{ post.url }}">{{ post.title }}</a>
 		      <p>{{ post.excerpt }}</p>
