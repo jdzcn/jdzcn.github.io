@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用debootscrap安装debian
+tags: life
 ---
 通过官方ISO安装是通常做法，但是基于极简原则，我尝试通过debootstrap命令安装，以获得一个最小化系统。
 
