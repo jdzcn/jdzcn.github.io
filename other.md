@@ -1,12 +1,12 @@
 ---
 layout: default
-title: 技术
-permalink: /tech/
+title: Other
+permalink: /other/
 ---
 
 <ul>
   {% for post in site.posts %}
-	{% if post.tags contains 'tech' %}
+	{% if post.tags contains 'other' %}
 		<li>
 		      <a href="{{ post.url }}">{{ post.title }}</a>
 		      <p>{{ post.excerpt }}</p>

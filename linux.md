@@ -1,12 +1,12 @@
 ---
 layout: default
-title: 生活
-permalink: /life/
+title: Linux
+permalink: /linux/
 ---
 
 <ul>
   {% for post in site.posts %}
-	{% if post.tags == 'life' %}
+	{% if post.tags contains 'linux' %}
 		<li>
 		      <a href="{{ post.url }}">{{ post.title }}</a>
 		      <p>{{ post.excerpt }}</p>
