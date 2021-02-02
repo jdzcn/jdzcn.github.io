@@ -1,7 +1,14 @@
 ---
-layout: page
+layout: default
 title: 技术
 permalink: /tech/
 ---
 
-### 技术页。
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <p>{{ post.excerpt }}</p>
+    </li>
+  {% endfor %}
+</ul>
