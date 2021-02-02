@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Tech
+title: 技术
 permalink: /tech/
 ---
 
-### tech page.
+### 技术页。

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: other
+title: 其他
 permalink: /other/
 ---
 
-### other page.
+### 其他页。
