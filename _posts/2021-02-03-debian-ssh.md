@@ -1,6 +1,6 @@
 ---
 layout: post
-title: debian10中的ssh设置
+title: debian10中的ssh常用设置
 tags: [linux]
 ---
 
