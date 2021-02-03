@@ -9,7 +9,7 @@ permalink: /other/
 	{% if post.tags contains 'other' %}
 		<li>
 		      <a href="{{ post.url }}">{{ post.title }}</a>
-		      <p>{{ post.excerpt }}</p>
+		      
 		</li>
 	{% endif %} 
   {% endfor %}

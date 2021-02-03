@@ -9,7 +9,7 @@ permalink: /linux/
 	{% if post.tags contains 'linux' %}
 		<li>
 		      <a href="{{ post.url }}">{{ post.title }}</a>
-		      <p>{{ post.excerpt }}</p>
+		      
 		</li>
 	{% endif %} 
   {% endfor %}
