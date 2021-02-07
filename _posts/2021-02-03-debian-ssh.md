@@ -47,4 +47,4 @@ passwd root
 
 - [server-world](https://www.server-world.info/en/note?os=Debian_10&p=ssh&f=1)
 
-- [archlinux](https://wiki.archlinux.org/index.php/OpenSSH_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+- [archlinux](https://wiki.archlinux.org/index.php/OpenSSH)
