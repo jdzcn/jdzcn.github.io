@@ -1,6 +1,6 @@
 ---
 layout: post
-title: markdown编辑器typora图片自动上传
+title: typora图片自动上传
 tags: [linux]
 ---
 

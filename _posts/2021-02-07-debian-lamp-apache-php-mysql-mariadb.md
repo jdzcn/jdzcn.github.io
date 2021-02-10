@@ -62,10 +62,14 @@ http://localhost/
 
 ```shell
 # mysql -u root -p
-MariaDB [(none)]> CREATE DATABASE tecmint_wpdb;
-MariaDB [(none)]> GRANT ALL ON tecmint_wpdb.* TO 'tecmint_wpuser'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
-MariaDB [(none)]> FLUSH PRIVILEGES;
-MariaDB [(none)]> exit;
+MariaDB> CREATE USER 'song'@'localhost' IDENTIFIED BY '123456';
+MariaDB> GRANT ALL PRIVILEGES ON *.* TO 'song'@'localhost';
+MariaDB> FLUSH PRIVILEGES;
+
+MariaDB> create database myshop;
+
+#import data
+#mysql -uroot -psongbin myshop<*.sql
 ```
 
 ### PHP
