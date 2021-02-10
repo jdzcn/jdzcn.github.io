@@ -1,6 +1,6 @@
 ---
 layout: post
-title: debian10通过samba在局域网免密共享文件夹
+title: debian设置samba匿名免密共享
 ---
 
 samba是局域网共享文件的重要方式，本文介绍如何在debian10中建立免密访问的局域网文件夹。
