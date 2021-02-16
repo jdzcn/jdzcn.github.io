@@ -52,27 +52,8 @@ arch-chroot /mnt
 网络设置
 
 ```shell
-# nano /etc/systemd/network/20-wired.network
-
-	[Match]
-	Name=enp1s0
-
-	[Network]
-	DHCP=ipv4
-
-	#使用静态 IP 的有线适配器
-
-	[Match]
-	Name=enp1s0
-
-	[Network]
-	Address=10.1.10.9/24
-	Gateway=10.1.10.1
-	DNS=10.1.10.1
-	#DNS=8.8.8.8
-
-	#启动网络服务
-	systemctl start/enable systemd-networkd
+pacman -S dhcpcd
+systemctl enable dhcpcd
 ```
 
 设置语言
@@ -117,16 +98,36 @@ passwd
 
 ### 可选配置
 
-安装openbox，常用配置请参考[本文](https://jdzcn.xyz/view.php?name=jdzcn.github.io/_posts/2021-02-02-debootstrap-debian-install.md)
+##### 安装显卡
 
 ```shell
 	lspci | grep -e VGA -e 3D
 	pacman -Ss xf86-video
-	pacman -S xf86-video-intel
-	pacman -S xorg-server xorg-xinit lightdm openbox dmenu wqy-microhei xterm leafpad pcmanfm git firefox trojan tint2 volumeicon
+	pacman -S xf86-video-intel xf86-video-amdgpu
 ```
 
-设置声卡
+##### 安装openbox等常用软件，常用配置请参考[本文](https://jdzcn.xyz/view.php?name=jdzcn.github.io/_posts/2021-02-02-openbox.md)
+
+安装
+
+```shell
+	pacman -S xorg-server xorg-xinit openbox dmenu wqy-microhei xterm leafpad pcmanfm git firefox tint2 volumeicon
+```
+
+配置
+
+```shell
+cp /etc/X11/xinit/xinitrc ~/.xinitrc && nano ~/.xinitrc
+echo 'exec openbox-session'>>~/.xinitrc
+```
+
+运行
+
+```shell
+startx
+```
+
+##### 设置声卡
 
 ```shell
 	pacman -S alsa-utils
@@ -138,7 +139,7 @@ passwd
 	defaults.ctl.card 1
 ```
 
-新建用户配置sudo免密
+##### 新建用户配置sudo免密
 
 ```shell
 useradd -m -g users sb -s /bin/bash
@@ -146,17 +147,20 @@ passwd sb
 echo 'sb ALL=(ALL)NOPASSWD:ALL'>>/etc/sudoers
 ```
 
-配置时区同步
+##### 配置时区同步
 
 ```shell
 sudo timedatectl set-timezone Asia/Shanghai
 sudo timedatectl set-ntp true
 ```
 
-中文输入法
+##### 中文输入法
 
 ```shell
 pacman -S fcitx fcitx-im fcitx-configtool fcitx-table-extra fcitx-sunpinyin 
 pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5
 ```
 
+### 参考
+
+- [官方安装指南](https://wiki.archlinux.org/index.php/Installation_guide)
