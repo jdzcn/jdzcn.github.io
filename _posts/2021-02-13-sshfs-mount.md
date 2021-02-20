@@ -1,6 +1,6 @@
 ---
 layout: post
-title: sshfs挂载云目录
+title: sshfs挂载远程目录
 tags: [linux]
 ---
 

@@ -101,7 +101,6 @@ sudo timedatectl set-ntp true
 常用软件
 
 ```shell
-sudo apt install openbox xterm alsa-utils mousepad pcmanfm tint2 
-fonts-wqy-microhei trojan firefox-esr git volumeicon-alsa file-roller -y
+sudo apt install openbox xterm alsa-utils mousepad pcmanfm tint2 fonts-wqy-microhei trojan firefox-esr git volumeicon-alsa file-roller -y
 ```
 
