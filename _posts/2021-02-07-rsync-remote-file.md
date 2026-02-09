@@ -49,6 +49,26 @@ $ rsync -av --exclude '.*' source/ destination
 ```shell
 $ rsync -av --include="*.txt" --exclude='*' source/ destination
 ```
+####模拟运行（Dry Run）
+在执行涉及大量删除或复杂路径的操作前，先看看会发生什么，而不实际修改文件。
+用法：加入 -n 或 --dry-run。
+建议：每次使用 --delete 前都跑一次这个，防止误删。
+
+
+####快速检查文件差异
+如果你只想知道哪些文件不同，而不想实际传输，可以配合 -i (itemize-changes) 参数。
+用法：rsync -avin ...
+输出含义：
+>f+++++++：新文件。
+>f..t......：时间戳不同。
+>f.s......：文件大小不同。
+
+
+
+#### sync dir to termux(android phone)
+rsync -avzP --inplace --no-perms --no-owner --no-group -e "ssh -p 8022" posts/ u0_a228@192.168.1.53:/sdcard/Download/posts/ 
+####从手机拉取照片到电脑，跳过已经存在的文件
+rsync -avzP --ignore-existing -e "ssh -p 8022" u0_a228@192.168.1.53:/sdcard/DCIM/Camera/ ~/Pictures/PhoneBackup/
 
 上面命令指定同步时，排除所有文件，仅同步txt文件。
 

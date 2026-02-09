@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=suspend
+Exec=sudo systemctl suspend
+Icon=/home/sb/Downloads/poweroff.png
+
+Terminal=false
+Type=Application
+Categories=System;TerminalEmulator;

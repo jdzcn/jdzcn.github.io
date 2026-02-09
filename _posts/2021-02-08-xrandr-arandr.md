@@ -9,11 +9,11 @@ xrandr是Linux桌面分辨率设置工具，图形前端为arandr。
 ### 安装
 debian
 ```shell
-sudo apt install xrandr
+sudo apt install arandr
 ```
 arch
 ```shell
-pacman -S xrandr
+pacman -S arandr
 ```
 ### 检测设备分辨率
 ```shell

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Linux建立交换文件
+tags: [linux]
 ---
 
 Linux安装都需要建立交换分区，我们也可以在安装完成后建立交换文件。

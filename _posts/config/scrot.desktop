@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=scrot
+Exec=scrot -s 
+Icon=/home/sb/Downloads/reboot.png
+
+Terminal=true
+Type=Application
+Categories=System;TerminalEmulator;

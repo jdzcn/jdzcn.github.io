@@ -1,6 +1,7 @@
 ---
 layout: post
 title: debian10网络配置
+tags: [linux]
 ---
 
 debian10安装完成后，网络配置过程如下：

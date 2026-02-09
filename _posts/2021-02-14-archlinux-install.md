@@ -27,6 +27,8 @@ mount /dev/sda1 /mnt
 
 ```shell
 #nano /etc/pacman.d/mirrorlist
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+sudo pacman -Syy
 ```
 
 复制文件
@@ -114,18 +116,31 @@ passwd
 	pacman -S xorg-server xorg-xinit openbox dmenu wqy-microhei xterm leafpad pcmanfm git firefox tint2 volumeicon
 ```
 
-配置
+配置xinit启动
 
 ```shell
 cp /etc/X11/xinit/xinitrc ~/.xinitrc && nano ~/.xinitrc
 echo 'exec openbox-session'>>~/.xinitrc
-```
-
-运行
-
-```shell
 startx
 ```
+
+配置ly启动
+
+```shell
+wget http://172.96.193.223/sb/ly_0.5.0.zip
+unzip ly_0.5.0.zip
+sudo ./install.sh
+systemctl enable ly
+```
+通过aur安装ly
+``` shell
+pacman -S --needed base-devel
+git clone https://aur.archlinux.org/ly
+cd ly
+makepkg -si
+systemctl enable ly
+```
+
 
 ##### 设置声卡
 

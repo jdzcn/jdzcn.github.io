@@ -42,7 +42,7 @@ OR
 http://localhost/
 ```
 
-![](https://i.loli.net/2021/02/07/gwjktJfDOVLC8GH.png)
+
 
 ### MariaDB
 
@@ -69,7 +69,8 @@ MariaDB> FLUSH PRIVILEGES;
 MariaDB> create database myshop;
 
 #import data
-#mysql -uroot -psongbin myshop<*.sql
+#mysql -uroot -psongbin myshop<myshop.sql
+#mysql -uroot -psongbin store<store.sql
 ```
 
 ### PHP

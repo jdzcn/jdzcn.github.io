@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=tv
+Exec=mpv --playlist=/home/sb/iptv.m3u &
+Icon=/home/sb/Downloads/reboot.png
+
+Terminal=false
+Type=Application
+Categories=System;TerminalEmulator;

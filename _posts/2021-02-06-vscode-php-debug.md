@@ -10,7 +10,7 @@ vscode和php都是我常用的开发工具，下面介绍如何在vscode中调�
 
 在vscode中安装php debug扩展
 
-![](https://i.loli.net/2021/02/06/HipavsINjgotBEe.png)
+
 
 ## 2. Xdebug Installation
 

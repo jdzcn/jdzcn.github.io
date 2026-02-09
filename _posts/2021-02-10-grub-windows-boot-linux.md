@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 自定义grub启动windows
+tags: [linux]
 ---
 
 安装linux,windows多系统时，偶见windows分区无法启动，可将以下内容修改UUID，命名为custom.cfg,复制到/boot/grub。

@@ -40,7 +40,11 @@ vi /etc/ssh/sshd_config
 service sshd restart
 passwd root 
 ```
-
+配置防火墙
+```shell
+ufw allow ssh
+ufw allow from 192.168.1.0/24 to any port 22
+```
 
 
 #### 参考

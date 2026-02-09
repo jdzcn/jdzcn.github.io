@@ -1,6 +1,7 @@
 ---
 layout: post
 title: debian设置samba匿名免密共享
+tags: [linux]
 ---
 
 samba是局域网共享文件的重要方式，本文介绍如何在debian10中建立免密访问的局域网文件夹。
@@ -9,6 +10,10 @@ samba是局域网共享文件的重要方式，本文介绍如何在debian10中�
 
 ```shell
 apt -y install samba
+```
+### 配置防火墙
+```shell
+ufw allow from 192.168.1.0/24 to any app Samba
 ```
 
 ### 配置
@@ -40,11 +45,13 @@ map to guest = Bad User
 
 # any share name you like
 
-[Share]
+[movie]
     # shared directory
-    path = /home/share
+    path = /home/sb/movie
     # writable
     writable = yes
+    browseable = yes
+    public = yes
     # guest OK
     guest ok = yes
     # guest only
@@ -60,7 +67,13 @@ map to guest = Bad User
 ```shell
 systemctl restart smbd 
 ```
+### linux访问
+````
+sudo apt install cifs-utils
+smbclient -L 192.168.1.5
+sudo mount -t cifs //192.168.1.21/movie movie -o username=sb
 
+```
 ### 参考
 
 - [server-world](https://www.server-world.info/en/note?os=Debian_10&p=samba&f=1)

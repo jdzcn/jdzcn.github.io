@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=reboot
+Exec=sudo systemctl reboot
+Icon=/home/sb/Downloads/reboot.png
+
+Terminal=false
+Type=Application
+Categories=System;TerminalEmulator;
