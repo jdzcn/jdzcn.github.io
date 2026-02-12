@@ -7,6 +7,7 @@ tags: [linux]
 
 Debian 13 Btrfs 手动安装全流程脚本
 Bash
+```
 #!/bin/bash
 # 假设 /dev/sda1 是 EFI，/dev/sda2 是 Btrfs 主分区
 
@@ -34,7 +35,7 @@ debootstrap --arch amd64 --include=linux-image-amd64,grub-efi,btrfs-progs,nano,l
 
 # --- 4. 绑定系统环境并进入 chroot ---
 for i in /dev /dev/pts /proc /sys /run; do mount -B $i /mnt$i; done
-
+```
 echo "系统已就绪，请执行：chroot /mnt /bin/bash 开启内部配置"
 🛠️ 进入 Chroot 后的必做操作（复制即用）
 进入 chroot /mnt 后，依次执行：
@@ -42,7 +43,7 @@ echo "系统已就绪，请执行：chroot /mnt /bin/bash 开启内部配置"
 设置主机名： echo "my-debian" > /etc/hostname
 
 生成 fstab（关键）：
-
+```
 Bash
 cat <<EOF > /etc/fstab
 UUID=$(blkid -s UUID -o value /dev/sda2) / btrfs subvol=@,compress=zstd:3,noatime 0 0
@@ -51,10 +52,10 @@ UUID=$(blkid -s UUID -o value /dev/sda2) /var/log btrfs subvol=@log,compress=zst
 UUID=$(blkid -s UUID -o value /dev/sda2) /.snapshots btrfs subvol=@snapshots,compress=zstd:3,noatime 0 0
 UUID=$(blkid -s UUID -o value /dev/sda1) /boot/efi vfat defaults 0 2
 EOF
-配置网络与用户： apt update && apt install network-manager passwd root
+#配置网络与用户： apt update && apt install network-manager passwd root
 
-安装并更新引导： grub-install /dev/sda update-grub
-
+#安装并更新引导： grub-install /dev/sda update-grub
+```
 💡 最后的避坑指南
 /var/log 子卷：如果在安装某些包时报错，是因为有些程序在 /var/log 下需要特定的文件夹。手动 mkdir -p /var/log/apt 等即可解决。
 

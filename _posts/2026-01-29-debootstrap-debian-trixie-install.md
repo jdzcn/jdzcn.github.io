@@ -39,8 +39,10 @@ apt install debootstrap
 debootstrap trixie /mnt http://mirrors.tuna.tsinghua.edu.cn/debian
 ```
 #uefi模式需要：
+```
 mkdir -p /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
+```
 ### 配置系统
 
 复制网络设置

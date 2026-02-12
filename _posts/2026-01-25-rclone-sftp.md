@@ -32,6 +32,7 @@ cat ~/.ssh/id_rsa.pub
 1. 交互式配置流程
 运行 rclone config，按照以下逻辑输入：
 配置项	输入内容
+
 n) New remote	输入名称（如 myserver）
 Storage Type	输入 sftp
 host	服务器 IP 地址
@@ -40,14 +41,15 @@ key_file	C:\Users\你的用户名\.ssh\id_rsa
 pubkey_auth	true (如果使用密钥认证)
 2. 配置文件直接编辑 (rclone.conf)
 你可以直接将以下代码块粘贴到 rclone.conf 中：
-ini
+```
 [myserver]
 type = sftp
 host = 1.2.3.4
 user = root
 port = 22
 key_file = C:\Users\你的用户名\.ssh\id_rsa
-# 如果私钥没有设置密码，则无需 pass 字段
+```
+# 区分大小写。如果私钥没有设置密码，则无需 pass 字段
 请谨慎使用此类代码。
 
 第三部分：常用管理命令
