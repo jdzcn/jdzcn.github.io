@@ -1,6 +1,6 @@
 ---
 layout: post
-title: rclone配置sftp免密同步
+title: Debian 13常用命令清单
 tags: [linux]
 ---
 
@@ -73,5 +73,3 @@ Debian 的核心就是 `apt`。在 Debian 13 中，这是你安装和更新软�
 ### 💡 小贴士
 
 Debian 13 引入了较新的内核和库，如果你是从旧版本升级上来的，记得经常使用 `sudo apt full-upgrade` 来处理复杂的依赖关系变化。
-
-**你需要我为你解释其中某个命令的具体参数用法，或者是想了解如何配置 Debian 13 的软件源吗？**
