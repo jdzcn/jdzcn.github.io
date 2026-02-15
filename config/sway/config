@@ -240,8 +240,17 @@ exec wl-paste --type image --watch cliphist store
 bindsym $mod+u exec cliphist list | wofi --dmenu | cliphist decode |wl-copy 
 
 
+# 截取全屏并保存到图片文件夹 (按 Print)
+bindsym $mod+Print exec grim ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
+
+# 自由选择区域截屏并保存 (按 Shift + Print)
+bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
+
+# 选择区域并复制到剪贴板 (按 Mod + Shift + S，类似 Windows)
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+
 #swaymsg -t get_outputs
-output Virtual-1 mode 1920x1080@60Hz
+#output Virtual-1 mode 1920x1080@60Hz
 exec waybar
-output * bg /home/sb/mountains.jpg fill
+output * bg /home/sb/ym1.jpg fill
 include /etc/sway/config.d/*
