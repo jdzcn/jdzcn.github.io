@@ -1,0 +1,18 @@
+# 显示模式，drun 代表应用启动，run 代表执行命令
+allow_images=true
+no_actions=true
+mode=drun
+# 显示位置和偏移
+location=center
+# 是否显示搜索栏
+#prompt=Search
+# 窗口宽度（可以是像素或百分比）
+width=400
+height=300
+# 开启即打即找
+always_parse_args=true
+show_all=false
+# 打印选中的结果并退出
+print_command=true
+# 终端模拟器设置（点击需要终端运行的应用时使用）
+term=foot
