@@ -15,13 +15,13 @@ tags: [android]
 1. **解锁 Bootloader (BL)：** 手机绑定小米账号满 168 小时，使用官方解锁工具解锁。
 2. **电脑环境：** 安装好 ADB/Fastboot 驱动，下载官方平台工具 (Platform Tools)。
 3. **准备文件：**
-* 小米官方刷机工具以安装小米驱动
+* 小米官方刷机工具(MiFlash)以安装小米驱动
 https://xiaomiflashtool.com/
-* **Recovery:** OrangeFox (OFRP) 镜像文件。
+* **Recovery:** OrangeFox (OFRP) 镜像文件(OrangeFox-R11.3_3-picasso)。
 https://orangefox.download/
-* **底包 (Firmware):** 对应版本的最新底层固件（通常为 MIUI 官方提取版）。
+* **底包 (Firmware):** 对应版本的最新底层固件（fw_picasso_miui_PICASSO_V13.0.5.0.SGICNXM_5d1ab6f4d3_12.0）。
 https://xmfirmwareupdater.com/#download
-* **ROM:** Pixel Experience 官方或稳定版 `.zip` 包。
+* **ROM:** Pixel Experience 官方或稳定版 PixelExperience_Plus_picasso-13.0-20230816-0230-OFFICIAL 包。
 https://get.pixelexperience.org/
 * **工具:** v2rayNG (arm64-v8a) 用于后续激活网络。
 https://github.com/2dust/v2rayNG/releases
@@ -33,7 +33,7 @@ https://github.com/2dust/v2rayNG/releases
 ### 第二阶段：刷入 Recovery
 
 1. 手机进入 **Fastboot 模式**（音量下 + 电源键）。
-2. 电脑端执行选择执行：
+2. 电脑端执行打开CMD命令行.bat选择执行：
 ```bash
 fastboot devices  # 确认看到序列号
 fastboot boot recovery.img  # 临时启动 OrangeFox
