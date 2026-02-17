@@ -1,3 +1,9 @@
+---
+layout: post
+title: redmi k30 5G手机刷Pixel Experience
+tags: [android]
+---
+
 这份指南为你整理了从零开始到进入系统的完整流程。针对 **Redmi K30 5G (picasso)**，这是一条最稳健的路径。
 
 ---
