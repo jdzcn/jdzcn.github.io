@@ -48,8 +48,7 @@ fastboot reboot recovery #重启到recovery模式
 进入 OrangeFox 后，严格按以下顺序操作：
 
 1. **清除数据 (Wipe)：**
-* 进入 Wipe 菜单，勾选 `Dalvik / ART Cache`、`Cache`、`System`、`Data`，滑动清理。
-
+* 进入 Wipe 菜单，勾选 `Dalvik / ART Cache`、`Cache`、`System`、`Data`，滑动清理。格式化Data：为了防止加密导致无法开机，建议进行一次 Format Data（需输入 yes 确认）。通过 MTP 模式将 底包（firmware）和PE 的 .zip 包从电脑拖进手机内存。
 
 2. **刷入底包 (Install Firmware)：**
 * 找到下载好的底包 `.zip`，点击并刷入。**（不可省略，否则会导致基带不匹配或无法开机）**。
