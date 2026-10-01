@@ -21,6 +21,11 @@ youtube-dl --playlist-items 1,3-5 url
 #only audio mp3
 youtube-dl -x --audio-format mp3 url
 
+#提取音频
+ffmpeg -i input.mp4 -vn -c:a copy output.aac
+
+ffmpeg -i input.mp4 -vn -c:a libmp3lame -q:a 2 output.mp3
+
 #指定长度
 youtube-dl -x --audio-format mp3 --postprocessor-args "-ss 00:00:53 -to 00:01:20" https://youtu.be/NjTT5_RSkw4
 or
