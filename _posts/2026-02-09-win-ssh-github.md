@@ -71,4 +71,19 @@ ssh -T git@github.com
 * **权限问题：** 如果提示找不到 `ssh-keygen`，请确保 Windows 10 已开启“OpenSSH 客户端”功能（设置 -> 应用 -> 可选功能 -> 添加功能）。
 * **HTTPS 转 SSH：** 如果你之前的项目是用 HTTPS 克隆的，记得用 `git remote set-url origin git@github.com:用户名/仓库名.git` 切换成 SSH 协议，这样才能享受免密待遇。
 
+###配置主机简称
+
+```
+Host mi
+    HostName 192.168.1.53
+    Port 8022
+    User u0_a228
+    IdentityFile ~/.ssh/id_ed25519
+
+Host arch
+    HostName 192.168.1.75
+    Port 22
+    User sb
+    IdentityFile ~/.ssh/id_ed25519
+```
 **你的 Git 已经配置好全局用户名和邮箱了吗？如果还没做，我可以提供对应的配置命令。**
