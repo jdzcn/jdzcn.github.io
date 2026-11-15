@@ -5,7 +5,7 @@ tags: [linux]
 ---
 ### 制作启动U盘
 
-通过[官网](https://archlinux.org/)或[清华](https://mirrors.tuna.tsinghua.edu.cn/)等镜像网站下载ISO文件，实体安装需制作安装U盘，虚拟机则不必。Linux制作启动U盘命令：
+通过[官网](https://archlinux.org/)或[清华](https://mirrors.tuna.tsinghua.edu.cn/)等镜像网站下载ISO文件，放入ventoy系统U盘或实体安装需制作安装U盘，虚拟机则不必。Linux制作启动U盘命令：
 
 ```shell
 $ sudo dd if=name-of-iso.iso of=/dev/sdb status="progress"
@@ -17,8 +17,11 @@ $ sudo dd if=name-of-iso.iso of=/dev/sdb status="progress"
 
 ```shell
 fdisk -l
-mkfs.ext4 /dev/sda1
+mkfs.fat -F 32 /dev/efi_system_partition
+mkfs.ext4 /dev/root_partition
+
 mount /dev/sda1 /mnt
+mount --mkdir /dev/ef_system_partition /mnt/boot
 ```
 
 ### 安装
@@ -34,7 +37,7 @@ sudo pacman -Syy
 复制文件
 
 ```sh
-pacstrap /mnt base linux linux-firmware
+pacstrap -K /mnt base linux linux-firmware
 ```
 
 ### 配置系统
@@ -48,12 +51,14 @@ genfstab -U /mnt >> /mnt/etc/fstab
 切换目标系统
 
 ```shell
-arch-chroot /mnt
+arch-chroot -S /mnt
 ```
 
 网络设置
 
 ```shell
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+hwclock --systohc
 pacman -S dhcpcd
 systemctl enable dhcpcd
 ```
@@ -97,6 +102,28 @@ passwd
 	#重建grub配置
 	grub-mkconfig -o /boot/grub/grub.cfg
 ```
+安装引导systemd-boot
+
+```shell
+#安装引导器
+bootctl install
+#创建启动项
+mkdir -p /boot/loader/entries
+#创建 /boot/loader/entries/arch.conf:
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=UUID=根分区UUID rw
+#再创建/boot/loader/loader.conf:
+default arch.conf
+timeout 3
+#退出chroot前运行:
+bootctl list
+#能看到arch.conf条目就说明配置正确。重启检查启动顺序"Linux Boot Manager"
+
+```
+
+
 
 ### 可选配置
 
