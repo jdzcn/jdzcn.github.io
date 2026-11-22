@@ -75,7 +75,7 @@ systemctl enable dhcpcd
 设置主机名称
 
 ```shell
-	#echo myhostname >/etc/hostname
+	echo myhostname >/etc/hostname
 	#nano /etc/hosts
 	127.0.0.1	localhost
 	::1		localhost
@@ -143,6 +143,12 @@ bootctl list
 	pacman -S xorg-server xorg-xinit openbox dmenu wqy-microhei xterm leafpad pcmanfm git firefox tint2 volumeicon
 ```
 
+安装niri
+```
+sudo pacman -S niri fuzzel otf-font-awesome wqy-zenhei firefox foot pipewire-pulse wireplumber thunar tumbler
+
+```
+
 配置xinit启动
 
 ```shell
@@ -154,12 +160,10 @@ startx
 配置ly启动
 
 ```shell
-wget http://172.96.193.223/sb/ly_0.5.0.zip
-unzip ly_0.5.0.zip
-sudo ./install.sh
-systemctl enable ly
+
 ```
 通过aur安装ly
+
 ``` shell
 pacman -S --needed base-devel
 git clone https://aur.archlinux.org/ly
@@ -199,8 +203,19 @@ sudo timedatectl set-ntp true
 ##### 中文输入法
 
 ```shell
-pacman -S fcitx fcitx-im fcitx-configtool fcitx-table-extra fcitx-sunpinyin 
-pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5
+sudo pacman -S fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-gtk fcitx5-qt
+
+#设置环境变量
+sudo tee -a /etc/environment <<EOF
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+EOF
+
+#添加到niri配置
+spawn-at-startup "fcitx5" "-d"
+
+# 在应用菜单里找到并打开 **“Fcitx5 配置”**（或终端运行 `fcitx5-configtool`），在“输入法”选项卡中，取消勾选“仅显示当前语言”，找到并添加 **“拼音”** 即可。
 ```
 
 ### 参考
