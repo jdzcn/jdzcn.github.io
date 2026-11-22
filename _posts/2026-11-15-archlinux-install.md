@@ -127,7 +127,7 @@ bootctl list
 
 ### 可选配置
 
-##### 安装显卡
+##### 安装显卡(非必需)
 
 ```shell
 	lspci | grep -e VGA -e 3D
@@ -160,20 +160,13 @@ startx
 配置ly启动
 
 ```shell
-
-```
-通过aur安装ly
-
-``` shell
-pacman -S --needed base-devel
-git clone https://aur.archlinux.org/ly
-cd ly
-makepkg -si
-systemctl enable ly
+sudo pacman -S ly xorg-xauth
+sudo systemctl enable ly@tty2.service
+sudo systemctl disable getty@tty2.service
 ```
 
 
-##### 设置声卡
+##### 设置声卡(非必需)
 
 ```shell
 	pacman -S alsa-utils
